@@ -1,0 +1,7 @@
+site_name: MIPS - ASSEMBLY
+site_url: https://example.com
+nav:
+  - Visão geral: index.md
+  - Exemplos - Lista: examples.md
+theme: material
+language: pt-BR
