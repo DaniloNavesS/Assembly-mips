@@ -19,3 +19,6 @@
     lw $t3, $t1($s0)        # Pega valor de A[j] e adiciona em $t3
     add $s3, $t3, $t2       # Soma N ao $t3
     sw $s3, $t0($s0)        # Adiciona o resultado em A[i]
+
+    li $v0, 10
+    syscall
