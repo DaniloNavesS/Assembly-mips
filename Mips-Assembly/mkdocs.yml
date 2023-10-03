@@ -3,5 +3,6 @@ site_url: https://example.com
 nav:
   - Visão geral: index.md
   - Exemplos - Lista: examples.md
+  - Arquitetura: arquitetura.md
 theme: material
 language: pt-BR
