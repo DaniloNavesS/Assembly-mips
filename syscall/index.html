@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://example.com/examples/">
+        <link rel="canonical" href="https://example.com/syscall/">
       
       
-        <link rel="prev" href="../syscall/">
+        <link rel="prev" href="..">
       
       
-        <link rel="next" href="../arquitetura/">
+        <link rel="next" href="../examples/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Exemplos - Lista - MIPS - ASSEMBLY</title>
+        <title>System Call - MIPS - ASSEMBLY</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#exemplos-resolvidos-em-assembly-mips" class="md-skip">
+        <a href="#syscall" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Exemplos - Lista
+              System Call
             
           </span>
         </div>
@@ -209,25 +209,6 @@
       
   
   
-  
-    <li class="md-nav__item">
-      <a href="../syscall/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    System Call
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
     
   
   
@@ -243,7 +224,7 @@
           
   
   <span class="md-ellipsis">
-    Exemplos - Lista
+    System Call
   </span>
   
 
@@ -254,7 +235,7 @@
         
   
   <span class="md-ellipsis">
-    Exemplos - Lista
+    System Call
   </span>
   
 
@@ -276,15 +257,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ola-mundo" class="md-nav__link">
-    Olá mundo
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#soma-de-inteiros" class="md-nav__link">
-    Soma de inteiros
+  <a href="#tabela-syscall" class="md-nav__link">
+    Tabela Syscall
   </a>
   
 </li>
@@ -293,6 +267,25 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exemplos - Lista
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -343,15 +336,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ola-mundo" class="md-nav__link">
-    Olá mundo
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#soma-de-inteiros" class="md-nav__link">
-    Soma de inteiros
+  <a href="#tabela-syscall" class="md-nav__link">
+    Tabela Syscall
   </a>
   
 </li>
@@ -371,47 +357,90 @@
                   
 
 
-<h1 id="exemplos-resolvidos-em-assembly-mips">Exemplos resolvidos em Assembly Mips</h1>
-<h2 id="ola-mundo">Olá mundo</h2>
-<p>Printa olá mundo na saida.</p>
-<pre><code>.data
-    msg: .asciiz &quot;Ola mundo\n&quot;      # Criar um const com valor &quot;Ola mundo&quot;
+<h1 id="syscall">SYSCALL</h1>
+<p><strong>Chamadas do sistema (System Call)</strong></p>
+<p><em>Os 4 tipos de solicitações são:</em></p>
+<pre><code>1 - Escrita de saída padrão
 
-.text
-main:
-    li $v0, 4               # imprime uma label 
-    la $a0, msg             # la = Load adress, carrega um adress da .data
-    syscall
+2 - Leitura da entrada padrão
 
-    li $v0, 10              # Encerra o codigo, parecido com return 0
-    syscall
+3 - Alocação de memória
+
+4 - Encerramento de processo
 </code></pre>
-<h2 id="soma-de-inteiros">Soma de inteiros</h2>
-<pre><code>.data
-    br: .asciiz &quot;\n&quot;        # Quebra de linha 
-.text
-
-main:
-    li $v0, 5               # Lê uma linha de inteiros
-    syscall
-    move $t0, $v0           # Pega o valor digitado e adiciona no $t0
-
-    li $v0, 5               # Lê uma linha de inteiros
-    syscall
-    move $t1, $v0           # Pega o valor digitado e adiciona no $t1
-
-    add $a0, $t0, $t1       # Efetua a operacao de soma
-
-    li $v0, 1               # imprime o valor de $a0, no caso, o resultado da soma
-    syscall
-
-    la $a0, br              # Carrega o &quot;/n&quot;
-    li $v0, 4               # Imprime a break line (br)
-    syscall
-
-    li $v0, 10              # Encerra o programa
-    syscall
-</code></pre>
+<h2 id="tabela-syscall">Tabela Syscall</h2>
+<table>
+<thead>
+<tr>
+<th>Ação</th>
+<th>Codigo em $v0</th>
+<th>Argumento</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Printar Inteiro</td>
+<td>1</td>
+<td>$a0</td>
+<td></td>
+</tr>
+<tr>
+<td>Printar Float</td>
+<td>2</td>
+<td>$f12</td>
+<td></td>
+</tr>
+<tr>
+<td>Printar Double</td>
+<td>3</td>
+<td>$f12</td>
+<td></td>
+</tr>
+<tr>
+<td>Printar String</td>
+<td>4</td>
+<td>$a0</td>
+<td></td>
+</tr>
+<tr>
+<td>Leitura Inteiro</td>
+<td>5</td>
+<td>$a0</td>
+<td>Inteiro em $v0</td>
+</tr>
+<tr>
+<td>Leitura Float</td>
+<td>6</td>
+<td>$a0</td>
+<td>float em $f0</td>
+</tr>
+<tr>
+<td>Leitura Float</td>
+<td>7</td>
+<td>$a0</td>
+<td>float em $f0</td>
+</tr>
+<tr>
+<td>Leitura String</td>
+<td>8</td>
+<td>$a0 = Adress of input buffer, $a1 = Maximum number of characters to read</td>
+<td>Tabela externa</td>
+</tr>
+<tr>
+<td>Sbrk(Alocação de memoria na HEAP)</td>
+<td>9</td>
+<td>$a0 = Número de bytes alocados</td>
+<td>$v0 contém o end de memória alocada</td>
+</tr>
+<tr>
+<td>Exit (Encerrar processo)</td>
+<td>10</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 
 
