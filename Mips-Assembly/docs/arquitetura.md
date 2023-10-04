@@ -1,5 +1,13 @@
 # MIPS - ASSEMBLY
 
+## Processo de compilação
+
+![1]("/Mips-Assembly/src/Compilacao.png")
+
+## RISC vs CISC
+
+
+
 ## Representações das instruções
 
 São separadoss em 3 formatos padrões:

@@ -1,5 +1,6 @@
 # MIPS - ASSEMBLY
 
+
 ## Estrutura main
 
 ```
@@ -8,6 +9,22 @@
     main:           # Rótulo
     li $v0, 10 # Encerra o codigo, parecido com return 0
     syscall
+```
+
+
+
+## Tipo de dados
+
+**.word** w1,w2,...wm -> dado de 32 bits;
+
+**.byte** b1,b2,...bm -> dados de 8 bits;
+
+**.asciiz** str -> cadeia de caracteres ASCII terminados pelo caracter nulo.
+
+
+Exemplo:
+```
+x: .word 120 #Se eu colocar "x: .word 120,130,140" seria como um vetor sequencial
 ```
 
 ## Registradores
@@ -39,6 +56,8 @@ Operadores:
 |Call Função | Estrutura |  Ação |
 |---------|------------|--------------|
 |  Mover  | move $t0, $v0   | Transfere o valor de $t0 para $v0|
+| Carregamento imediato| li $v0, 5 | Declara o valor de 5 para $v0 |
+|Carregamento de endereço| la $a0, msg | Carrega o endereço de msg e armazena em $a0 |  
 
 ## Exemplo de código
 
