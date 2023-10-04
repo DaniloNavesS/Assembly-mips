@@ -2,7 +2,7 @@
 
 ## Processo de compilação
 
-![1](/src/Compilacao.png)
+![1](src/Compilacao.png)
 
 ## RISC vs CISC
 
