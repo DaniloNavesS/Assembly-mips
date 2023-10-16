@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://example.com/syscall/">
+        <link rel="canonical" href="https://example.com/instrucoes/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../syscall/">
       
       
-        <link rel="next" href="../instrucoes/">
+        <link rel="next" href="../examples/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>System Call - MIPS - ASSEMBLY</title>
+        <title>Instruções - Assembly - MIPS - ASSEMBLY</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#syscall" class="md-skip">
+        <a href="#estrutura-main" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              System Call
+              Instruções - Assembly
             
           </span>
         </div>
@@ -209,6 +209,25 @@
       
   
   
+  
+    <li class="md-nav__item">
+      <a href="../syscall/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    System Call
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -217,14 +236,12 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
   <span class="md-ellipsis">
-    System Call
+    Instruções - Assembly
   </span>
   
 
@@ -235,7 +252,7 @@
         
   
   <span class="md-ellipsis">
-    System Call
+    Instruções - Assembly
   </span>
   
 
@@ -247,8 +264,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -257,8 +272,92 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tabela-syscall" class="md-nav__link">
-    Tabela Syscall
+  <a href="#estrutura-main" class="md-nav__link">
+    Estrutura main
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipo-de-dados" class="md-nav__link">
+    Tipo de dados
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registradores" class="md-nav__link">
+    Registradores
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operacoes" class="md-nav__link">
+    Operações
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes" class="md-nav__link">
+    Funções
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deslocamento-de-memoria" class="md-nav__link">
+    Deslocamento de memória
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operacoes-logicas" class="md-nav__link">
+    Operações lógicas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mascaras" class="md-nav__link">
+    Máscaras
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instrucoes-condicionais" class="md-nav__link">
+    Instruções condicionais
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instrucoes-de-desvio-condicional" class="md-nav__link">
+    Instruções de desvio condicional
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desvio-incondicional" class="md-nav__link">
+    Desvio incondicional
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lacos-de-repeticao" class="md-nav__link">
+    Laços de repetição
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procedimentos" class="md-nav__link">
+    Procedimentos
   </a>
   
 </li>
@@ -267,25 +366,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../instrucoes/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Instruções - Assembly
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -326,8 +406,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -336,8 +414,92 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tabela-syscall" class="md-nav__link">
-    Tabela Syscall
+  <a href="#estrutura-main" class="md-nav__link">
+    Estrutura main
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipo-de-dados" class="md-nav__link">
+    Tipo de dados
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registradores" class="md-nav__link">
+    Registradores
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operacoes" class="md-nav__link">
+    Operações
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes" class="md-nav__link">
+    Funções
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deslocamento-de-memoria" class="md-nav__link">
+    Deslocamento de memória
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operacoes-logicas" class="md-nav__link">
+    Operações lógicas
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mascaras" class="md-nav__link">
+    Máscaras
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instrucoes-condicionais" class="md-nav__link">
+    Instruções condicionais
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instrucoes-de-desvio-condicional" class="md-nav__link">
+    Instruções de desvio condicional
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desvio-incondicional" class="md-nav__link">
+    Desvio incondicional
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lacos-de-repeticao" class="md-nav__link">
+    Laços de repetição
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procedimentos" class="md-nav__link">
+    Procedimentos
   </a>
   
 </li>
@@ -357,90 +519,280 @@
                   
 
 
-<h1 id="syscall">SYSCALL</h1>
-<p><strong>Chamadas do sistema (System Call)</strong></p>
-<p><em>Os 4 tipos de solicitações são:</em></p>
-<pre><code>1 - Escrita de saída padrão
+  <h1>Instruções - Assembly</h1>
 
-2 - Leitura da entrada padrão
-
-3 - Alocação de memória
-
-4 - Encerramento de processo
+<h2 id="estrutura-main">Estrutura main</h2>
+<pre><code>    .data           # Seção de dados
+    .text           # Seção de código
+    main:           # Rótulo
+    li $v0, 10 # Encerra o codigo, parecido com return 0
+    syscall
 </code></pre>
-<h2 id="tabela-syscall">Tabela Syscall</h2>
+<h2 id="tipo-de-dados">Tipo de dados</h2>
+<p><strong>.word</strong> w1,w2,...wm -&gt; dado de 32 bits;</p>
+<p><strong>.byte</strong> b1,b2,...bm -&gt; dados de 8 bits;</p>
+<p><strong>.asciiz</strong> str -&gt; cadeia de caracteres ASCII terminados pelo caracter nulo.</p>
+<p>Exemplo:</p>
+<pre><code>x: .word 120 #Se eu colocar &quot;x: .word 120,130,140&quot; seria como um vetor sequencial
+</code></pre>
+<h2 id="registradores">Registradores</h2>
 <table>
 <thead>
 <tr>
-<th>Ação</th>
-<th>Codigo em $v0</th>
-<th>Argumento</th>
-<th>Resultado</th>
+<th># do Reg.</th>
+<th>Nome</th>
+<th>Descrição</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Printar Inteiro</td>
-<td>1</td>
-<td>$a0</td>
-<td></td>
+<td>0</td>
+<td>$zero</td>
+<td>Retorna valor 0</td>
 </tr>
 <tr>
-<td>Printar Float</td>
-<td>2</td>
-<td>$f12</td>
-<td></td>
+<td>2~3</td>
+<td>$v0-$v1</td>
+<td>(values) separado para setar valores de syscall</td>
 </tr>
 <tr>
-<td>Printar Double</td>
-<td>3</td>
-<td>$f12</td>
-<td></td>
+<td>4~7</td>
+<td>$a0-$a3</td>
+<td>Registradores de Argumentos</td>
 </tr>
 <tr>
-<td>Printar String</td>
-<td>4</td>
-<td>$a0</td>
-<td></td>
+<td>8~15</td>
+<td>$t0-$t7</td>
+<td>Registradores Temporários</td>
 </tr>
 <tr>
-<td>Leitura Inteiro</td>
-<td>5</td>
-<td>$a0</td>
-<td>Inteiro em $v0</td>
+<td>16~23</td>
+<td>$s0-$s7</td>
+<td>Registradores de Permanência</td>
 </tr>
 <tr>
-<td>Leitura Float</td>
-<td>6</td>
-<td>$a0</td>
-<td>float em $f0</td>
-</tr>
-<tr>
-<td>Leitura Float</td>
-<td>7</td>
-<td>$a0</td>
-<td>float em $f0</td>
-</tr>
-<tr>
-<td>Leitura String</td>
-<td>8</td>
-<td>$a0 = Adress of input buffer, $a1 = Maximum number of characters to read</td>
-<td>Tabela externa</td>
-</tr>
-<tr>
-<td>Sbrk(Alocação de memoria na HEAP)</td>
-<td>9</td>
-<td>$a0 = Número de bytes alocados</td>
-<td>$v0 contém o end de memória alocada</td>
-</tr>
-<tr>
-<td>Exit (Encerrar processo)</td>
-<td>10</td>
-<td></td>
-<td></td>
+<td>24~25</td>
+<td>$t8-$s9</td>
+<td>Registradores Temporários</td>
 </tr>
 </tbody>
 </table>
+<h2 id="operacoes">Operações</h2>
+<p>Operações possui o formato:</p>
+<pre><code>*operador* $resultado, $valor1, $valor2
+</code></pre>
+<p>Operadores:</p>
+<table>
+<thead>
+<tr>
+<th>Operação</th>
+<th>Estrutura</th>
+<th>Ação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Somar</td>
+<td>add $t0, $t1, $t2</td>
+<td>Soma o valor de $t1 + $t2 e o resultado vai para o $t0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="funcoes">Funções</h2>
+<table>
+<thead>
+<tr>
+<th>Call Função</th>
+<th>Estrutura</th>
+<th>Ação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mover</td>
+<td>move $t0, $v0</td>
+<td>Transfere o valor de $t0 para $v0</td>
+</tr>
+<tr>
+<td>Carregamento imediato</td>
+<td>li $v0, 5</td>
+<td>Declara o valor de 5 para $v0</td>
+</tr>
+<tr>
+<td>Carregamento de endereço</td>
+<td>la $a0, msg</td>
+<td>Carrega o endereço de msg e armazena em $a0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="deslocamento-de-memoria">Deslocamento de memória</h2>
+<p><strong>1. Deslocamento de mémoria tipo R</strong></p>
+<p><strong>Esquerda</strong></p>
+<pre><code>    sll $t0, $s0, 4
+</code></pre>
+<p>4 = quantidade de bits -&gt; shamt</p>
+<p><strong>Direita</strong></p>
+<pre><code>    srl $t0, $s0, 10
+</code></pre>
+<h2 id="operacoes-logicas">Operações lógicas</h2>
+<p><strong>and, or, xor, nor</strong></p>
+<p>Geralmente usadas para:</p>
+<ol>
+<li>Condições compostas </li>
+<li>Máscaras</li>
+</ol>
+<h2 id="mascaras">Máscaras</h2>
+<p><strong>Máscara são operações para lidar com bits de uma palavra</strong></p>
+<p>Ex: Extrair o bit menos significativo</p>
+<p>$t0 = 0010 0001 1100 0011</p>
+<p>$t9 = 0000 0000 0000 0001</p>
+<p>$t2 = 0000 0000 0000 0001</p>
+<p>Ex:. máscara</p>
+<p>and $t2, $t0, $t9</p>
+<h2 id="instrucoes-condicionais">Instruções condicionais</h2>
+<table>
+<thead>
+<tr>
+<th>instrução</th>
+<th>Estrutura</th>
+<th>Ex</th>
+<th>Função</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>slt</td>
+<td>slt reg, r1, r2</td>
+<td>Set on less than</td>
+<td>if ( r1 &lt; r2 ) reg = 1, else reg = 0</td>
+</tr>
+</tbody>
+</table>
+<p>OBS: <em>sltu</em> pode retornar valores diferentes de <em>slt</em></p>
+<h2 id="instrucoes-de-desvio-condicional">Instruções de desvio condicional</h2>
+<table>
+<thead>
+<tr>
+<th>instrução</th>
+<th>Estrutura</th>
+<th>Ex</th>
+<th>Função</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>beq</td>
+<td>beq r1, r2, label</td>
+<td><strong>B</strong>ranch if <strong>EQ</strong>ual</td>
+<td>if ( r1 == r2 ) Desvia para <em>label</em></td>
+</tr>
+<tr>
+<td>bne</td>
+<td>bne r1, r2, label</td>
+<td><strong>B</strong>ranch if <strong>N</strong>ot <strong>E</strong>qual</td>
+<td>if ( r1 != r2 ) Desvia para <em>label</em></td>
+</tr>
+</tbody>
+</table>
+<p>EX::. 1. Desvio para label se r1 &gt;= r2?</p>
+<pre><code>slt $t0, r1, r2             # r1 &lt; r2
+beq $t0, $zero, label       # Se $t0 = 0, então r1 !&lt; r2 logo, r1 &gt;= r2
+</code></pre>
+<p>EX:. 2. Desviar para label r1 &gt; r2:</p>
+<pre><code>slt $t0, r2, r1
+bne $t0, $zero, label
+</code></pre>
+<p><strong>Para os exemplos 1 e 2, há duas pseudo-instruções</strong></p>
+<table>
+<thead>
+<tr>
+<th>instrução</th>
+<th>Estrutura</th>
+<th>Ex</th>
+<th>Função</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bge</td>
+<td>bge r1, r2, label</td>
+<td><strong>B</strong>ranch  on <strong>G</strong>reater than or <strong>E</strong>qual to</td>
+<td>if ( r1 &gt;= r2 ) Desvia para <em>label</em></td>
+</tr>
+<tr>
+<td>bgt</td>
+<td>bgt r1, r2, label</td>
+<td><strong>B</strong>ranch on <strong>G</strong>reater <strong>T</strong>han</td>
+<td>if ( r1 &gt; r2 ) Desvia para <em>label</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="desvio-incondicional">Desvio incondicional</h2>
+<pre><code>j label     # Jump = Desvia para a label  
+</code></pre>
+<ol>
+<li>Deslocamento relativo ao PC</li>
+</ol>
+<p>Label se transforma na qtde. de instruções a apartir da instrução sendo executada.</p>
+<p><strong>O end. de destino do desvio = 4 * label + PC</strong></p>
+<p>EX:. </p>
+<p>em C</p>
+<pre><code>if( i == j ) 
+    f = g + h;
+else 
+    f = g - h;
+</code></pre>
+<p>Em assembly</p>
+<p>f = $s0, g = $s1, j = $s4</p>
+<pre><code>main:
+    beq $s3, $s4, if
+    sub $s0, $s1, $s2
+    j fim
+    if: add $s0, $s1, $s2
+</code></pre>
+<h2 id="lacos-de-repeticao">Laços de repetição</h2>
+<p><strong>Laços são combinações de desvio de condicionais</strong></p>
+<p>Ex:. </p>
+<p>Em C</p>
+<pre><code>i = 0;
+while ( i &lt; n )  {
+    A[i] = 0;
+    i++;
+}
+</code></pre>
+<p>Em assembly</p>
+<p>i = $t0, n = $s0, A = $s1 </p>
+<pre><code>add $t0, $zero, $zero       # i = 0;
+
+loop: slt $t2, $t0, $s0     # i &lt; n;
+      beq $t2, $zero,  exit
+      sll $t1, $t0, 2
+      add $t1, $t0, $t1
+      sw $zero, 0($t1)
+      addi $t0, $t0, 1
+      j loop
+exit:
+</code></pre>
+<h2 id="procedimentos">Procedimentos</h2>
+<pre><code>int main () {
+    media( a , b );
+    return 0;
+}
+</code></pre>
+<p><strong>fluxo de chamada a procedimentos</strong></p>
+<ol>
+<li>Coloque os argumentos nos registradores</li>
+<li>Desvie a execução p/ o procedimento</li>
+<li>Ajuste o armazenamento no procedimento</li>
+<li>Execute o procedimento</li>
+<li>Armazene o resultado nos registradores</li>
+<li>Ajuste o armazenamento</li>
+<li>Retorne ao chamado</li>
+</ol>
+<p><strong>Padrão de registradores em procedimentos</strong></p>
+<p>$a0 a $a3: Passagens de argumentos.
+$v0 e $v1: Retorno de procedimentos.</p>
+<p>Ajuste de armazenamento: $s0 a $s7 devem ser preservados</p>
 
 
 

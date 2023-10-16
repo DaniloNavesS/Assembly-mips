@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.3">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.3.2">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.79e020e9.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.30068a00.min.css">
       
       
 
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Visão geral
+              Visão geral - MIPS
             
           </span>
         </div>
@@ -203,7 +203,7 @@
           
   
   <span class="md-ellipsis">
-    Visão geral
+    Visão geral - MIPS
   </span>
   
 
@@ -214,7 +214,7 @@
         
   
   <span class="md-ellipsis">
-    Visão geral
+    Visão geral - MIPS
   </span>
   
 
@@ -236,43 +236,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#estrutura-main" class="md-nav__link">
-    Estrutura main
+  <a href="#processo-de-compilacao" class="md-nav__link">
+    Processo de compilação
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tipo-de-dados" class="md-nav__link">
-    Tipo de dados
+  <a href="#risc-vs-cisc" class="md-nav__link">
+    RISC vs CISC
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#registradores" class="md-nav__link">
-    Registradores
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#operacoes" class="md-nav__link">
-    Operações
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#funcoes" class="md-nav__link">
-    Funções
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exemplo-de-codigo" class="md-nav__link">
-    Exemplo de código
+  <a href="#representacoes-das-instrucoes" class="md-nav__link">
+    Representações das instruções
   </a>
   
 </li>
@@ -310,11 +289,11 @@
   
   
     <li class="md-nav__item">
-      <a href="examples/" class="md-nav__link">
+      <a href="instrucoes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Exemplos - Lista
+    Instruções - Assembly
   </span>
   
 
@@ -329,11 +308,11 @@
   
   
     <li class="md-nav__item">
-      <a href="arquitetura/" class="md-nav__link">
+      <a href="examples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Arquitetura
+    Exemplos - Lista
   </span>
   
 
@@ -369,43 +348,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#estrutura-main" class="md-nav__link">
-    Estrutura main
+  <a href="#processo-de-compilacao" class="md-nav__link">
+    Processo de compilação
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tipo-de-dados" class="md-nav__link">
-    Tipo de dados
+  <a href="#risc-vs-cisc" class="md-nav__link">
+    RISC vs CISC
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#registradores" class="md-nav__link">
-    Registradores
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#operacoes" class="md-nav__link">
-    Operações
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#funcoes" class="md-nav__link">
-    Funções
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exemplo-de-codigo" class="md-nav__link">
-    Exemplo de código
+  <a href="#representacoes-das-instrucoes" class="md-nav__link">
+    Representações das instruções
   </a>
   
 </li>
@@ -426,123 +384,109 @@
 
 
 <h1 id="mips-assembly">MIPS - ASSEMBLY</h1>
-<h2 id="estrutura-main">Estrutura main</h2>
-<pre><code>    .data           # Seção de dados
-    .text           # Seção de código
-    main:           # Rótulo
-    li $v0, 10 # Encerra o codigo, parecido com return 0
-    syscall
-</code></pre>
-<h2 id="tipo-de-dados">Tipo de dados</h2>
-<p><strong>.word</strong> w1,w2,...wm -&gt; dado de 32 bits;</p>
-<p><strong>.byte</strong> b1,b2,...bm -&gt; dados de 8 bits;</p>
-<p><strong>.asciiz</strong> str -&gt; cadeia de caracteres ASCII terminados pelo caracter nulo.</p>
-<p>Exemplo:</p>
-<pre><code>x: .word 120 #Se eu colocar &quot;x: .word 120,130,140&quot; seria como um vetor sequencial
-</code></pre>
-<h2 id="registradores">Registradores</h2>
+<h2 id="processo-de-compilacao">Processo de compilação</h2>
+<p><img alt="1" src="src/Compilacao.png" /></p>
+<h2 id="risc-vs-cisc">RISC vs CISC</h2>
+<h2 id="representacoes-das-instrucoes">Representações das instruções</h2>
+<p>São separadoss em 3 formatos padrões:</p>
+<p><strong>Tipo R</strong> (3 Registradores)</p>
 <table>
 <thead>
 <tr>
-<th># do Reg.</th>
-<th>Nome</th>
-<th>Descrição</th>
+<th>op</th>
+<th>rs</th>
+<th>rt</th>
+<th>rd</th>
+<th>shant</th>
+<th>function</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>6 bits</td>
+<td>5 bits</td>
+<td>5 bits</td>
+<td>5 bits</td>
+<td>5 bits</td>
+<td>6 bits</td>
+</tr>
+</tbody>
+</table>
+<p><em>op:</em> código da operação</p>
+<p><em>funct:</em> código aritmetico</p>
+<p><em>rs e rt:</em> registradores de operação (em ordem)</p>
+<p><em>rd:</em> operador de destino</p>
+<p><em>shant:</em> tamanho do deslocamento</p>
+<table>
+<thead>
+<tr>
+<th>op</th>
+<th>rs</th>
+<th>rt</th>
+<th>rd</th>
+<th>shant</th>
+<th>function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tipo R</td>
+<td>$s1</td>
+<td>$s2</td>
+<td>$st0</td>
+<td>0</td>
+<td>add</td>
+</tr>
 <tr>
 <td>0</td>
-<td>$zero</td>
-<td>Retorna valor 0</td>
-</tr>
-<tr>
-<td>2~3</td>
-<td>$v0-$v1</td>
-<td>(values) separado para setar valores de syscall</td>
-</tr>
-<tr>
-<td>4~7</td>
-<td>$a0-$a3</td>
-<td>Registradores de Argumentos</td>
-</tr>
-<tr>
-<td>8~15</td>
-<td>$t0-$t7</td>
-<td>Registradores Temporários</td>
-</tr>
-<tr>
-<td>16~23</td>
-<td>$s0-$s7</td>
-<td>Registradores de Permanência</td>
-</tr>
-<tr>
-<td>24~25</td>
-<td>$t8-$s9</td>
-<td>Registradores Temporários</td>
+<td>17</td>
+<td>18</td>
+<td>8</td>
+<td>0</td>
+<td>32</td>
 </tr>
 </tbody>
 </table>
-<h2 id="operacoes">Operações</h2>
-<p>Operações possui o formato:</p>
-<pre><code>*operador* $resultado, $valor1, $valor2
-</code></pre>
-<p>Operadores:</p>
+<p><strong>Tipo I</strong> (2 Regs e 1 const )</p>
 <table>
 <thead>
 <tr>
-<th>Operação</th>
-<th>Estrutura</th>
-<th>Ação</th>
+<th>op</th>
+<th>rs</th>
+<th>rt</th>
+<th>constante / end</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Somar</td>
-<td>add $t0, $t1, $t2</td>
-<td>Soma o valor de $t1 + $t2 e o resultado vai para o $t0</td>
+<td>6 bits</td>
+<td>5 bits</td>
+<td>5 bits</td>
+<td>16 bits</td>
 </tr>
 </tbody>
 </table>
-<h2 id="funcoes">Funções</h2>
+<p><em>op:</em> código da operação</p>
+<p><em>rs e rt:</em> registradores de operação (em ordem)</p>
+<p><strong>OBS:</strong> No tipo I, a constante varia de -2^15 a 2^15-1</p>
 <table>
 <thead>
 <tr>
-<th>Call Função</th>
-<th>Estrutura</th>
-<th>Ação</th>
+<th>Tipo I</th>
+<th>$t0</th>
+<th>$s0</th>
+<th>21</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Mover</td>
-<td>move $t0, $v0</td>
-<td>Transfere o valor de $t0 para $v0</td>
-</tr>
-<tr>
-<td>Carregamento imediato</td>
-<td>li $v0, 5</td>
-<td>Declara o valor de 5 para $v0</td>
-</tr>
-<tr>
-<td>Carregamento de endereço</td>
-<td>la $a0, msg</td>
-<td>Carrega o endereço de msg e armazena em $a0</td>
+<td>4</td>
+<td>8</td>
+<td>16</td>
+<td>21</td>
 </tr>
 </tbody>
 </table>
-<h2 id="exemplo-de-codigo">Exemplo de código</h2>
-<pre><code>.data
-    msg: .asciiz &quot;Hello word\n&quot; # Criar um const com caracteres ascii
-
-.text
-main:
-    li $v0, 4
-    la $a0, msg
-    syscall
-
-    li $v0, 10 # Encerra o codigo, parecido com return 0
-    syscall
-</code></pre>
 
 
 
@@ -580,11 +524,10 @@ main:
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
+    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
-    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
-    
-      <script src="assets/javascripts/bundle.6eac0284.min.js"></script>
+      <script src="assets/javascripts/bundle.dff1b7c8.min.js"></script>
       
     
   </body>
