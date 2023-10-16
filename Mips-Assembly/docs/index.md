@@ -1,79 +1,52 @@
 # MIPS - ASSEMBLY
 
+## Processo de compilação
 
-## Estrutura main
+![1](src/Compilacao.png)
 
-```
-    .data           # Seção de dados
-    .text           # Seção de código
-    main:           # Rótulo
-    li $v0, 10 # Encerra o codigo, parecido com return 0
-    syscall
-```
+## RISC vs CISC
 
 
 
-## Tipo de dados
+## Representações das instruções
 
-**.word** w1,w2,...wm -> dado de 32 bits;
+São separadoss em 3 formatos padrões:
 
-**.byte** b1,b2,...bm -> dados de 8 bits;
+**Tipo R** (3 Registradores)
 
-**.asciiz** str -> cadeia de caracteres ASCII terminados pelo caracter nulo.
+|op | rs | rt | rd | shant|  function |
+|---|----|----|----|------|-----------|
+| 6 bits |  5 bits | 5 bits | 5 bits | 5 bits|  6 bits |
 
+*op:* código da operação
 
-Exemplo:
-```
-x: .word 120 #Se eu colocar "x: .word 120,130,140" seria como um vetor sequencial
-```
+*funct:* código aritmetico
 
-## Registradores
+*rs e rt:* registradores de operação (em ordem)
 
-|# do Reg.| Nome       |    Descrição |
-|---------|------------|--------------|
-|  0      | $zero   | Retorna valor 0|
-|  2~3    | $v0-$v1 |(values) separado para setar valores de syscall|
-|  4~7    | $a0-$a3 | Registradores de Argumentos|
-|  8~15   | $t0-$t7 | Registradores Temporários|
-|  16~23  | $s0-$s7 | Registradores de Permanência|
-|  24~25  | $t8-$s9 | Registradores Temporários|
+*rd:* operador de destino
 
-## Operações
+*shant:* tamanho do deslocamento
 
-Operações possui o formato:
+|op | rs | rt | rd | shant|  function |
+|---|----|----|----|------|-----------|
+|Tipo R| $s1|$s2|$st0|0|add|
+|0| 17|18|8|0|32|
 
-    *operador* $resultado, $valor1, $valor2
+**Tipo I** (2 Regs e 1 const )
 
-Operadores:
+|op | rs | rt | constante / end |
+|---|----|----|-----------------|
+| 6 bits |  5 bits | 5 bits | 16 bits |
 
+*op:* código da operação
 
-| Operação | Estrutura |  Ação |
-|---------|------------|--------------|
-|  Somar  | add $t0, $t1, $t2   | Soma o valor de $t1 + $t2 e o resultado vai para o $t0|
+*rs e rt:* registradores de operação (em ordem)
 
-## Funções
+**OBS:** No tipo I, a constante varia de -2^15 a 2^15-1
 
-|Call Função | Estrutura |  Ação |
-|---------|------------|--------------|
-|  Mover  | move $t0, $v0   | Transfere o valor de $t0 para $v0|
-| Carregamento imediato| li $v0, 5 | Declara o valor de 5 para $v0 |
-|Carregamento de endereço| la $a0, msg | Carrega o endereço de msg e armazena em $a0 |  
-
-## Exemplo de código
-
-```
-.data
-    msg: .asciiz "Hello word\n" # Criar um const com caracteres ascii
-
-.text
-main:
-    li $v0, 4
-    la $a0, msg
-    syscall
-
-    li $v0, 10 # Encerra o codigo, parecido com return 0
-    syscall
-```
-
+|Tipo I | $t0 | $s0 | 21 |
+|---|----|----|-----------------|
+| 4 |  8 | 16 | 21 |
 
 

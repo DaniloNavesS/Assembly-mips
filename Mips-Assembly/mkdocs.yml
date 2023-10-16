@@ -1,8 +1,9 @@
 site_name: MIPS - ASSEMBLY
 site_url: https://example.com
 nav:
-  - Visão geral: index.md
+  - Visão geral - MIPS: index.md
   - System Call: syscall.md
+  - Instruções - Assembly: instrucoes.md
   - Exemplos - Lista: examples.md
-  - Arquitetura: arquitetura.md
+  
 theme: material

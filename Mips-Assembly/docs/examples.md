@@ -1,5 +1,21 @@
 # Exemplos resolvidos em Assembly Mips
 
+## Exemplo de código
+
+```
+.data
+    msg: .asciiz "Hello word\n" # Criar um const com caracteres ascii
+
+.text
+main:
+    li $v0, 4
+    la $a0, msg
+    syscall
+
+    li $v0, 10 # Encerra o codigo, parecido com return 0
+    syscall
+```
+
 ## Olá mundo
 Printa olá mundo na saida.
 ```

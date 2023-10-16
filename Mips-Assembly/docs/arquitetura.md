@@ -50,19 +50,3 @@ São separadoss em 3 formatos padrões:
 | 4 |  8 | 16 | 21 |
 
 
-## Deslocamento de memória
-
-**1. Deslocamento de mémoria tipo R**
-
-**Esquerda**
-```
-    sll $t0, $s0, 4
-```
-4 = quantidade de bits -> shamt
-
-**Direita**
-```
-    srl $t0, $s0, 10
-```
-
-
