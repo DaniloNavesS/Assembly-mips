@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.3.2">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.3">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.30068a00.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.79e020e9.min.css">
       
       
 
@@ -362,6 +362,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#acesso-a-pilha" class="md-nav__link">
+    Acesso a pilha
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instrucoes-para-chamada-de-procedimentos" class="md-nav__link">
+    Instruçoes para chamada de procedimentos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manipulacao-de-caracter" class="md-nav__link">
+    Manipulação de caracter
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -500,6 +521,27 @@
         <li class="md-nav__item">
   <a href="#procedimentos" class="md-nav__link">
     Procedimentos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acesso-a-pilha" class="md-nav__link">
+    Acesso a pilha
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instrucoes-para-chamada-de-procedimentos" class="md-nav__link">
+    Instruçoes para chamada de procedimentos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manipulacao-de-caracter" class="md-nav__link">
+    Manipulação de caracter
   </a>
   
 </li>
@@ -793,6 +835,84 @@ exit:
 <p>$a0 a $a3: Passagens de argumentos.
 $v0 e $v1: Retorno de procedimentos.</p>
 <p>Ajuste de armazenamento: $s0 a $s7 devem ser preservados</p>
+<h2 id="acesso-a-pilha">Acesso a pilha</h2>
+<ol>
+<li>Inserir</li>
+</ol>
+<p>EX: Salvar $s0 e $s1 na pilha</p>
+<pre><code>add $sp, $sp, -8        # Abrir espaco
+
+sw $s0, 0($sp)          # Salvar na pilha
+
+sw $s1, 4($sp)          # Salvar na pilha
+</code></pre>
+<ol>
+<li>Remover</li>
+</ol>
+<pre><code>lw $s0, 0($sp)          # Restaurar valores
+
+lw $s1, 4($sp)          # Restaurar valores
+
+addi $sp, $sp, 8        # Restaura espaço da pilha
+</code></pre>
+<h2 id="instrucoes-para-chamada-de-procedimentos">Instruçoes para chamada de procedimentos</h2>
+<ol>
+<li>Desvia para o procedimento</li>
+</ol>
+<pre><code>jal procedimento        # Jump and link
+</code></pre>
+<p>Salva o end da próxima instrução no reg $ra(returning adress)
+Faz O desvio para o rótulo procedimento</p>
+<ol>
+<li>Retorna ao chamador</li>
+</ol>
+<pre><code>jr $ra                 # Jump to returning
+</code></pre>
+<p>EX de função:</p>
+<p>Em C:</p>
+<pre><code>int main () {
+    int a = 3;
+    int b = 2;
+    printf(&quot;%d\n&quot;, media(a,b));
+    return 0;
+}
+
+int media(int a, int b) {
+    return (a + b)/2;
+}
+</code></pre>
+<p>Em Assembly:</p>
+<pre><code>main: 
+    li $s0, 3
+    li $s1, 2
+
+    move $a0, $s0
+    move $a1, $s1
+
+    jal media 
+
+    move $a0, $v0
+    li $v0, 1
+    syscall
+
+    li $v0, 10
+    syscall
+
+
+media: 
+    add $v0, $a0, $a1
+    srl $v0, $v0, 1
+    jr $ra
+</code></pre>
+<h2 id="manipulacao-de-caracter">Manipulação de caracter</h2>
+<ol>
+<li>Tabela ASCII
+    printf("%d\n", '2' - '0');
+    'a' - 'A' = 32;</li>
+<li>Instruções de acesso a memória
+    lb/lbu $t0, 0($s0)  # Load byte
+    sb $t0, 0($s0)      # Store byte</li>
+</ol>
 
 
 
@@ -830,10 +950,11 @@ $v0 e $v1: Retorno de procedimentos.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      <script src="../assets/javascripts/bundle.6eac0284.min.js"></script>
       
     
   </body>
