@@ -49,4 +49,11 @@ São separadoss em 3 formatos padrões:
 |---|----|----|-----------------|
 | 4 |  8 | 16 | 21 |
 
+**Tipo J** ()
+
+|op |end |
+|---|----|
+| 6 bits | 26 bits|
+
+É o formato das instruções j, jal e jr
 

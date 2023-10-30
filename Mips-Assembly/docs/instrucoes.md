@@ -223,4 +223,92 @@ $v0 e $v1: Retorno de procedimentos.
 
 Ajuste de armazenamento: $s0 a $s7 devem ser preservados
 
-    
+## Acesso a pilha
+
+1. Inserir
+
+EX: Salvar $s0 e $s1 na pilha
+
+```
+add $sp, $sp, -8        # Abrir espaco
+
+sw $s0, 0($sp)          # Salvar na pilha
+
+sw $s1, 4($sp)          # Salvar na pilha
+```
+
+2. Remover
+
+```
+lw $s0, 0($sp)          # Restaurar valores
+
+lw $s1, 4($sp)          # Restaurar valores
+
+addi $sp, $sp, 8        # Restaura espaço da pilha
+```
+
+## Instruçoes para chamada de procedimentos
+
+1. Desvia para o procedimento
+
+```
+jal procedimento        # Jump and link
+```
+Salva o end da próxima instrução no reg $ra(returning adress)
+Faz O desvio para o rótulo procedimento
+
+2. Retorna ao chamador
+```
+jr $ra                 # Jump to returning
+```
+
+EX de função:
+
+Em C:
+```
+int main () {
+    int a = 3;
+    int b = 2;
+    printf("%d\n", media(a,b));
+    return 0;
+}
+
+int media(int a, int b) {
+    return (a + b)/2;
+}
+```
+
+Em Assembly:
+
+```
+main: 
+    li $s0, 3
+    li $s1, 2
+
+    move $a0, $s0
+    move $a1, $s1
+
+    jal media 
+
+    move $a0, $v0
+    li $v0, 1
+    syscall
+
+    li $v0, 10
+    syscall
+
+
+media: 
+    add $v0, $a0, $a1
+    srl $v0, $v0, 1
+    jr $ra
+```
+
+## Manipulação de caracter
+
+1. Tabela ASCII
+    printf("%d\n", '2' - '0');
+    'a' - 'A' = 32;
+2. Instruções de acesso a memória
+    lb/lbu $t0, 0($s0)  # Load byte
+    sb $t0, 0($s0)      # Store byte
