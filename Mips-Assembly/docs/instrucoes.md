@@ -312,3 +312,35 @@ media:
 2. Instruções de acesso a memória
     lb/lbu $t0, 0($s0)  # Load byte
     sb $t0, 0($s0)      # Store byte
+
+
+## Detector de overflow - Sem sinal
+
+```
+addu $t0, $t1, $t2      # Não lança exeções
+
+xor $t3, $t1, $t2       # Se sinal(t1) != sinal(t2), t3 < 0
+
+slt $t3, $t3, $zero
+bne $t3, $zero, sem-overflow
+
+# Se o sinal dos op. forem iguais e o do resultado diferente, houve overflow
+
+xor $t3, $t0, $t1
+slt $t3, $t3, $zero
+bne $t3, $zero, overflow
+```
+
+## Detector de overflow - Com sinal
+
+```
+addu $t0, $t1,$t2
+
+nor $t3, $t2, $zero     # t3 = 2^32 - $t2 -1
+slt $t3, $t3, $t1       # 2^32 - $t2 - 1 < t1
+bne $t3, $zero, overflow
+
+xor $t3, $t0, $t1
+slt $t3, $t3, $zero
+bne $t3, $zero, overflow
+```
