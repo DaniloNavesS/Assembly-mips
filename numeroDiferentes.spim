@@ -1,0 +1,21 @@
+elemDistintos:
+    li $s0, 1           # i
+    li $v0, 1            # Count
+loop:
+    beq $s0,$a1,exit      # i = n
+    
+    lw $t0, 0($a0)
+    addi $a0, $a0, 4        # vetor[i + 1]
+    lw $t1, 0($a0)
+
+    bne $t0, $t1, count
+    
+    addi $s0, $s0, 1
+    j loop
+count:
+    addi $v0, $v0, 1
+    addi $s0, $s0, 1
+    j loop
+exit:
+    jr $ra
+

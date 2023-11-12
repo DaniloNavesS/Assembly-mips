@@ -1,0 +1,32 @@
+.data
+.text
+main:
+    li $s1, 0
+    li $v0, 5
+    syscall
+    move $s0, $v0
+loop: 
+    slt $s2,$s0,$s1
+    bne $s2, $zero, exit
+
+    li $v0, 1
+    syscall
+    move $s4, $v0
+
+    li $v0, 1
+    syscall
+    move $s5, $v0
+
+    and $s6, $s4, $s5
+
+    nor $a0, $s6, $zero
+
+    li $v0, 1
+    syscall
+
+    addi $s1, $s1, 1
+    j loop
+exit:
+    li $v0, 10
+    syscall
+    

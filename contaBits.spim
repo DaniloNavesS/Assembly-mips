@@ -1,0 +1,40 @@
+# .data
+# .text
+# main:
+#     li $v0, 5
+#     syscall
+
+#     move $a0, $v0
+
+#     jal contaBits
+
+#     move $t5, $v0
+
+#     li $v0, 1
+#     move $a0, $t5
+#     syscall
+
+#     li $v0, 10
+#     syscall
+
+contaBits:
+
+    beq $a0, $zero, encerraLoop
+
+    addi $t0, $zero, 1
+
+    and $t1, $a0, $t0
+
+    beq $t1, $t0, cont
+    j fim
+
+cont:
+    addi $t2, $t2, 1
+
+fim:
+    srl $a0, $a0, 1
+    j contaBits
+
+encerraLoop:
+    move $v0, $t2
+    jr $ra

@@ -1,0 +1,57 @@
+.data
+    vetor: .space 400
+.text
+main:
+
+li $t7, 20
+
+li $v0, 5 # n
+syscall 
+move $t0, $v0 
+
+li $t1, 0 # i
+
+while:
+    slt $t2, $t1, $t0 # i < n?
+    beq $t2, $zero, exit
+
+    li $v0, 8
+    la $a0, vetor 
+    li $a1, 400
+    syscall
+
+    la $t3, vetor
+
+    lb $t4, 0($t3)
+    lb $t5, 2($t3)
+
+    beq $t4, $t5, iguais
+
+    li $a0, 2
+    li $v0, 1
+    syscall
+    
+    addi $t1, $t1, 1
+    
+    li $v0, 11
+    li $a0, 10
+    syscall
+
+    j while
+
+iguais:
+    li $a0, 1
+    li $v0, 1
+    syscall
+    
+    addi $t1, $t1, 1
+
+    li $v0, 11
+    li $a0, 10
+    syscall
+
+    j while
+    
+exit: 
+    li $v0, 10
+    syscall
